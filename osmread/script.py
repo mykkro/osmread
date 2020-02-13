@@ -34,3 +34,4 @@ def main(argv=sys.argv):
             print(repr(e))
 
     print("%d elements read (nodes=%d, ways=%d, relations=%d)" % (element_count, node_count, way_count, relation_count))
+

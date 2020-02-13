@@ -16,6 +16,17 @@ def parse_file(filename, **kwargs):
         elif filename.endswith('.gz'):
             kwargs['compression'] = 'gz'
 
+    elif filename.endswith(('.json', '.json.bz2', '.json.gz')) \
+            or kwargs.get('format', None) == 'json':
+
+        from osmread.parser.ojson import JsonParser
+        parser_cls = JsonParser
+
+        if filename.endswith('.bz2'):
+            kwargs['compression'] = 'bz2'
+        elif filename.endswith('.gz'):
+            kwargs['compression'] = 'gz'
+
     elif filename.endswith('.pbf') \
             or kwargs.get('format', None) == 'pbf':
 
