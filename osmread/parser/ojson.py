@@ -12,6 +12,7 @@ if sys.version_info > (3,):
     unicode = str
 
 
+# TODO use streaming JSON parser like https://pypi.org/project/jsonslicer/ instead of reading the whole JSON file into memory
 class JsonParser(Parser):
 
     def __init__(self, **kwargs):
